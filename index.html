@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>CrystalsCollector</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Reset browsers to initial conditions -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+
+    <!-- Bootstrap 4 minimum style sheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Various JavaScript libraries needed to make some of the Bootstrap styling work. -->
+    <!-- For example, the collapsing nav bar will not work without these. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div class="jumbotron">
+            <div class="container text-left">
+                <h1>Crystals Collector!</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+
+                    <div id="instructions" class="container">
+                        <section class="main-section">
+
+                            <p>You will be given a random number at the start of the game.</p>
+
+                            <p>There are four cyrstals below. By clicking on a crystal you will add a specific amount of
+                                points to
+                                your total score.</p>
+
+                            <p>You win the game by matching your total score to the random number, you lose the game if
+                                your
+                                total
+                                score goes above the random number.</p>
+
+                            <p>The value of each crystal is hidden from you until you click on it.</p>
+
+                            <p>Each time when the game starts, the game will change the values of each crystal.</p>
+
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="currentNumber">
+                    
+                </div>
+                <div class="col-md-2" id="winsLosses">
+                    wins = 0
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" id="crystalOne">
+                    <div class="figContainer">
+                        <img src="./assets/images/crystalOne.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+
+                </div>
+                <div class="col-md-3" id="crystalTwo">
+                    <div class="figContainer">
+                        <img src="./assets/images/crystalTwo.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+
+
+                </div>
+                <div class="col-md-3" id="crystalThree">
+                    <div class="figContainer">
+                        <img src="./assets/images/crystalThree.jpg" class="img-responsive" style="width:100%"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="col-md-3" id="crystalFour">
+                    <div class="figContainer">
+                        <img src="./assets/images/crystalFour.jpg" class="img-responsive" style="width:100%"
+                            alt="Image">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="crystalOne">
+                    Your total score:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="crystalOne">
+                    0
+                </div>
+            </div>
+
+
+            <!-- Sticky footer -->
+            <!-- Copyright label &copy displays copyright symbol -->
+            <footer class="footer mt-auto py-3">
+                <div class="container">
+                    <span>Copyright&copy</span>
+                </div>
+            </footer>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
