@@ -1,5 +1,6 @@
 $(document).ready(function () {
     console.log("Start");
+    initGame();
 
     var myChar = {
         name: "",
@@ -51,25 +52,27 @@ $(document).ready(function () {
 
     initGame();
 
+    // Initialize game
     function initGame() {
         $("#luke_1").show();
         $("#darth_1").show();
         $("#leia_1").show();
         $("#jabba_1").show();
-        $("#luke_2").show();
-        $("#darth_2").show();
-        $("#leia_2").show();
-        $("#jabba_2").show();
-        $("#luke_3").show();
-        $("#darth_3").show();
-        $("#leia_3").show();
-        $("#jabba_3").show();
-        $("#luke_4").show();
-        $("#darth_4").show();
-        $("#leia_4").show();
-        $("#jabba_4").show();
+        $("#luke_2").hide();
+        $("#darth_2").hide();
+        $("#leia_2").hide();
+        $("#jabba_2").hide();
+        $("#luke_3").hide();
+        $("#darth_3").hide();
+        $("#leia_3").hide();
+        $("#jabba_3").hide();
+        $("#luke_4").hide();
+        $("#darth_4").hide();
+        $("#leia_4").hide();
+        $("#jabba_4").hide();
     };
 
+    // Hide the first row
     function hideFirstRow() {
         $("#luke_1").hide();
         $("#darth_1").hide();
@@ -77,6 +80,7 @@ $(document).ready(function () {
         $("#jabba_1").hide();
     }
 
+    // Hide the second row
     function hideSecondRow() {
         $("#luke_2").hide();
         $("#darth_2").hide();
@@ -113,7 +117,7 @@ $(document).ready(function () {
         myChar.currAttack = leia.baseAttack;
         myChar.attackInc = leia.attackInc;
         myChar.health = leia.health;
-       hideFirstRow();
+        hideFirstRow();
         setMe();
     });
     $("#jabba_1").click(function () {
@@ -123,7 +127,7 @@ $(document).ready(function () {
         myChar.currAttack = jabba.baseAttack;
         myChar.attackInc = jabba.attackInc;
         myChar.health = jabba.health;
-       hideFirstRow();
+        hideFirstRow();
         setMe();
     });
 
@@ -134,22 +138,25 @@ $(document).ready(function () {
             hideSecondRow();
             if (myChar.name === "luke") {
                 $("#luke_2").show();
-            }
-            else if (myChar.name === "darth") {
+            } else if (myChar.name === "darth") {
                 $("#darth_2").show();
-            }
-            else if (myChar.name === "leia") {
+            } else if (myChar.name === "leia") {
                 $("#leia_2").show();
-            }
-            else if (myChar.name === "jabba") {
+            } else if (myChar.name === "jabba") {
                 $("#jabba_2").show();
             }
-            removeMe();
+            removeMeFromThird();
         }
     }
 
-    function removeMe() {
+    function removeMeFromThird() {
         if (myChar.card != null) {
+
+            // Show everyone
+            $("#luke_3").show();
+            $("#darth_3").show();
+            $("#leia_3").show();
+            $("#jabba_3").show();    
             if (myChar.name === "luke") {
                 $("#luke_3").hide();
             }
@@ -173,7 +180,7 @@ $(document).ready(function () {
         defChar.name = "luke";
         defChar.counterAttack = luke.counterAttack;
         defChar.health = luke.health;
-       $("#luke_3").hide();
+        $("#luke_3").hide();
         setDef();
     });
     $("#darth_3").click(function () {
@@ -181,7 +188,7 @@ $(document).ready(function () {
         defChar.name = "darth";
         defChar.counterAttack = darth.counterAttack;
         defChar.health = darth.health;
-       $("#darth_3").hide();
+        $("#darth_3").hide();
         setDef();
     });
     $("#leia_3").click(function () {
@@ -189,7 +196,7 @@ $(document).ready(function () {
         defChar.name = "leia";
         defChar.counterAttack = leia.counterAttack;
         defChar.health = leia.health;
-       $("#leia_3").hide();
+        $("#leia_3").hide();
         setDef();
     });
     $("#jabba_3").click(function () {
@@ -197,37 +204,41 @@ $(document).ready(function () {
         defChar.name = "jabba";
         defChar.counterAttack = jabba.counterAttack;
         defChar.health = jabba.health;
-       $("#jabba_3").hide();
+        $("#jabba_3").hide();
         setDef();
     });
 
     function setDef() {
         if (defChar.card != null) {
             if (defChar.name === "luke") {
+                $("#luke_4").show();
                 $("#darth_4").hide();
                 $("#leia_4").hide();
                 $("#jabba_4").hide();
             }
             if (defChar.name === "darth") {
                 $("#luke_4").hide();
+                $("#darth_4").show();
                 $("#leia_4").hide();
                 $("#jabba_4").hide();
             }
             if (defChar.name === "leia") {
                 $("#luke_4").hide();
                 $("#darth_4").hide();
+                $("#leia_4").show();
                 $("#jabba_4").hide();
             }
             if (defChar.name === "jabba") {
                 $("#luke_4").hide();
                 $("#darth_4").hide();
                 $("#leia_4").hide();
+                $("#jabba_4").show();
             }
         }
     }
 
     // In game attack mode
-    $("#attack").click( function(){
+    $("#attack").click(function () {
 
         $("#yourAttack").text(myChar.name + " attacked " + defChar.name + " for " + myChar.currAttack + " damage");
         $("#defAttack").text(defChar.name + " attacked you back for " + defChar.counterAttack + " damage");
@@ -248,7 +259,7 @@ $(document).ready(function () {
 
     });
 
-    $("#restart").click( function() {
+    $("#restart").click(function () {
         initGame();
     });
 
