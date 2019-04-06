@@ -265,7 +265,7 @@ $(document).ready(function () {
             $("#defAttack").html("<button>Restart</button>");
         }
         if (defChar.health <= 0) {
-            $("#yourAttack").text("You have been defeated - GAME OVER!!!");
+            $("#yourAttack").text("You have defeated " + defChar.name + " , you can choose to fight another enemy.");
             $("#defAttack").text("");
         }
         myChar.currAttack += myChar.attackInc;
