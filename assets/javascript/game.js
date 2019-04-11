@@ -1,8 +1,11 @@
 $(document).ready(function () {
     console.log("Start");
-    initGame();
 
+    var haveClickedOne = false;
+    var haveClickedThree = false;
+    var canAttack = false;
     var deadDef = 0;
+
     var myChar = {
         name: "",
         card: null,
@@ -50,24 +53,28 @@ $(document).ready(function () {
         counterAttack: 4
     }
 
-
     initGame();
 
     // Initialize game
     function initGame() {
         haveClickedOne = false;
         haveClickedThree = false;
+        canAttack = false;
 
         deadDef = 0;
 
         $("#yourAttack").text("");
         $("#defAttack").text("");
 
+        $("#luke_2a").text("120");
+        $("#darth_2a").text("180");
+        $("#leia_2a").text("200");
+        $("#jabba_2a").text("50");
+
         $("#luke_4a").text("120");
         $("#darth_4a").text("180");
         $("#leia_4a").text("200");
         $("#jabba_4a").text("50");
-
 
         $("#luke_1").show();
         $("#darth_1").show();
@@ -211,6 +218,7 @@ $(document).ready(function () {
         if (!haveClickedOne) {
             return;
         }
+        canAttack = true;
         defChar.card = $("#luke_3");
         defChar.name = "Luke Skywalker";
         defChar.counterAttack = luke.counterAttack;
@@ -220,6 +228,10 @@ $(document).ready(function () {
         setDef();
     });
     $("#darth_3").click(function () {
+        if (!haveClickedOne) {
+            return;
+        }
+        canAttack = true;
         defChar.card = $("#darth_3");
         defChar.name = "Darth Vader";
         defChar.counterAttack = darth.counterAttack;
@@ -229,6 +241,10 @@ $(document).ready(function () {
         setDef();
     });
     $("#leia_3").click(function () {
+        if (!haveClickedOne) {
+            return;
+        }
+        canAttack = true;
         defChar.card = $("#leia_3");
         defChar.name = "Princess Leia";
         defChar.counterAttack = leia.counterAttack;
@@ -238,6 +254,10 @@ $(document).ready(function () {
         setDef();
     });
     $("#jabba_3").click(function () {
+        if (!haveClickedOne) {
+            return;
+        }
+        canAttack = true;
         defChar.card = $("#jabba_3");
         defChar.name = "Jabba The Hut";
         defChar.counterAttack = jabba.counterAttack;
@@ -280,6 +300,10 @@ $(document).ready(function () {
     // In game attack mode
     $("#attack").click(function () {
 
+        if (!canAttack) {
+            return;
+        }
+
         $("#yourAttack").text(myChar.name + " attacked " + defChar.name + " for " + myChar.currAttack + " damage");
         $("#defAttack").text(defChar.name + " attacked you back for " + defChar.counterAttack + " damage");
 
@@ -315,8 +339,10 @@ $(document).ready(function () {
             $("#yourAttack").text("You have been defeated - Game Over!");
             $("#defAttack").text("");
             $("#restart").show();
+            canAttack = false;
         }
         if (defChar.health <= 0) {
+            canAttack = false;
             $("#yourAttack").text("You have defeated " + defChar.name);
             deadDef++;
             if (deadDef == 3) {
