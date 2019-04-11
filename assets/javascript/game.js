@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     var haveClickedOne = false;
     var haveClickedThree = false;
+    var canPickNewDefender = false;
     var canAttack = false;
     var deadDef = 0;
 
@@ -59,9 +60,12 @@ $(document).ready(function () {
     function initGame() {
         haveClickedOne = false;
         haveClickedThree = false;
+        canPickNewDefender = false;
         canAttack = false;
 
         deadDef = 0;
+
+        $("#characterPick").text("Pick Your Character");
 
         $("#yourAttack").text("");
         $("#defAttack").text("");
@@ -111,7 +115,7 @@ $(document).ready(function () {
         $("#jabba_2").hide();
     }
 
-    // Handle "your character" set
+    // Handle "your character" set - only characters visible
     // When one is selected - hide all in the first row and set you in the second
     $("#luke_1").click(function () {
         myChar.card = $("#luke_2");
@@ -185,6 +189,9 @@ $(document).ready(function () {
                 $("#leia_3").show();
             }
             removeMeFromThird();
+            canPickNewDefender = true;
+            $("#characterPick").text("Your Character");
+
         }
     }
 
@@ -218,6 +225,10 @@ $(document).ready(function () {
         if (!haveClickedOne) {
             return;
         }
+        if (!canPickNewDefender) {
+            return;
+        }
+        canPickNewDefender = false;
         canAttack = true;
         defChar.card = $("#luke_3");
         defChar.name = "Luke Skywalker";
@@ -231,6 +242,10 @@ $(document).ready(function () {
         if (!haveClickedOne) {
             return;
         }
+        if (!canPickNewDefender) {
+            return;
+        }
+        canPickNewDefender = false;
         canAttack = true;
         defChar.card = $("#darth_3");
         defChar.name = "Darth Vader";
@@ -244,6 +259,10 @@ $(document).ready(function () {
         if (!haveClickedOne) {
             return;
         }
+        if (!canPickNewDefender) {
+            return;
+        }
+        canPickNewDefender = false;
         canAttack = true;
         defChar.card = $("#leia_3");
         defChar.name = "Princess Leia";
@@ -257,6 +276,10 @@ $(document).ready(function () {
         if (!haveClickedOne) {
             return;
         }
+        if (!canPickNewDefender) {
+            return;
+        }
+        canPickNewDefender = false;
         canAttack = true;
         defChar.card = $("#jabba_3");
         defChar.name = "Jabba The Hut";
@@ -342,6 +365,7 @@ $(document).ready(function () {
             canAttack = false;
         }
         if (defChar.health <= 0) {
+            canPickNewDefender = true;
             canAttack = false;
             $("#yourAttack").text("You have defeated " + defChar.name);
             deadDef++;
