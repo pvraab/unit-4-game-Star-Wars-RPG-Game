@@ -34,11 +34,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Star Wars RPG!</h1>
-
                 </div>
             </div>
+
+            <!-- Display who is available to be you - JS will hide these after selection -->
             <div class="row align-items-center">
-                <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch" id="luke_1">
+                <div class="col-sm-12 col-md-6 col-lg-3" id="luke_1">
                     <div class="card starWars">
                         <div class="card-body">
                             <h6 class="card-title">Luke Skywalker</h6>
@@ -47,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch" id="darth_1">
+                <div class="col-sm-12 col-md-6 col-lg-3" id="darth_1">
                     <div class="card starWars">
                         <div class="card-body">
                             <h6 class="card-title">Darth Vader</h6>
@@ -57,7 +58,7 @@
                     </div>
 
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch" id="leia_1">
+                <div class="col-sm-12 col-md-6 col-lg-3" id="leia_1">
                     <div class="card starWars">
                         <div class="card-body">
                             <h6 class="card-title">Leia</h6>
@@ -66,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch" id="jabba_1">
+                <div class="col-sm-12 col-md-6 col-lg-3" id="jabba_1">
                     <div class="card starWars">
                         <div class="card-body">
                             <h6 class="card-title">Jabba The Hut</h6>
@@ -78,14 +79,11 @@
                 </div>
             </div>
 
-            <div class="overlay">
-                <div class="row align-items-center" id="char-choice"></div>
-            </div>
-
+            <!-- Display your character - JS will hide those not picked up -->
             <div class="overlay">
                 <h1>Your Character</h1>
                 <div class="row align-items-center">
-                    <div class="col-md-3" id="luke_2">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="luke_2">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Luke Skywalker</h6>
@@ -94,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="darth_2">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="darth_2">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Darth Vader</h6>
@@ -104,7 +102,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3" id="leia_2">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="leia_2">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Leia</h6>
@@ -113,7 +111,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="jabba_2">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="jabba_2">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Jabba The Hut</h6>
@@ -126,10 +124,11 @@
                 </div>
             </div>
 
+            <!-- Display who is available to fight - JS will hide those not eligible -->
             <div class="overlay">
                 <h1>Enemies Available To Attack</h1>
                 <div class="row align-items-center">
-                    <div class="col-md-3" id="luke_3">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="luke_3">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Luke Skywalker</h6>
@@ -138,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="darth_3">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="darth_3">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Darth Vader</h6>
@@ -148,7 +147,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3" id="leia_3">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="leia_3">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Leia</h6>
@@ -157,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="jabba_3">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="jabba_3">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Jabba The Hut</h6>
@@ -169,13 +168,16 @@
                 </div>
             </div>
 
+            <!-- Display fight section - this is where the action takes place -->
+            <!-- Display who is being fought - JS will hide those not up -->
             <div class="overlay">
+
                 <h1>Fight Section</h1>
                 <button id=attack>Attack</button>
 
                 <h1>Defender</h1>
                 <div class="row align-items-center">
-                    <div class="col-md-3" id="luke_4">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="luke_4">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Luke Skywalker</h6>
@@ -184,7 +186,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="darth_4">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="darth_4">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Darth Vader</h6>
@@ -194,7 +196,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3" id="leia_4">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="leia_4">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Leia</h6>
@@ -203,7 +205,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3" id="jabba_4">
+                    <div class="col-sm-12 col-md-6 col-lg-3" id="jabba_4">
                         <div class="card starWars">
                             <div class="card-body">
                                 <h6 class="card-title">Jabba The Hut</h6>
@@ -214,6 +216,8 @@
                     </div>
 
                 </div>
+
+                <!-- Display attack result info -->
                 <div class="row align-items-center">
                     <div class="col-md-12" id="luke_4">
                         <h1 id="yourAttack"></h1>

@@ -2,6 +2,7 @@ $(document).ready(function () {
     console.log("Start");
     initGame();
 
+    var deadDef = 0;
     var myChar = {
         name: "",
         card: null,
@@ -21,29 +22,29 @@ $(document).ready(function () {
         counterAttack: 0
     }
     var luke = {
-        name: "luke",
+        name: "Luke Skywalker",
         health: 120,
         baseAttack: 6,
         attackInc: 6,
         counterAttack: 6
     }
     var darth = {
-        name: "darth",
+        name: "Darth Vader",
         health: 180,
         baseAttack: 9,
         attackInc: 4,
         counterAttack: 9
     }
     var leia = {
-        name: "leia",
+        name: "Princess Leia",
         health: 200,
         baseAttack: 10,
         attackInc: 4,
         counterAttack: 10
     }
     var jabba = {
-        name: "jabba",
-        health: 80,
+        name: "Jabba The Hut",
+        health: 50,
         baseAttack: 4,
         attackInc: 6,
         counterAttack: 4
@@ -56,6 +57,18 @@ $(document).ready(function () {
     function initGame() {
         haveClickedOne = false;
         haveClickedThree = false;
+
+        deadDef = 0;
+
+        $("#yourAttack").text("");
+        $("#defAttack").text("");
+
+        $("#luke_4a").text("120");
+        $("#darth_4a").text("180");
+        $("#leia_4a").text("200");
+        $("#jabba_4a").text("50");
+
+
         $("#luke_1").show();
         $("#darth_1").show();
         $("#leia_1").show();
@@ -72,6 +85,7 @@ $(document).ready(function () {
         $("#darth_4").hide();
         $("#leia_4").hide();
         $("#jabba_4").hide();
+        $("#restart").hide();
     };
 
     // Hide the first row
@@ -94,7 +108,7 @@ $(document).ready(function () {
     // When one is selected - hide all in the first row and set you in the second
     $("#luke_1").click(function () {
         myChar.card = $("#luke_2");
-        myChar.name = "luke";
+        myChar.name = "Luke Skywalker";
         myChar.baseAttack = luke.baseAttack;
         myChar.currAttack = luke.baseAttack;
         myChar.attackInc = luke.attackInc;
@@ -105,7 +119,7 @@ $(document).ready(function () {
     });
     $("#darth_1").click(function () {
         myChar.card = $("#darth_2");
-        myChar.name = "darth";
+        myChar.name = "Darth Vader";
         myChar.baseAttack = darth.baseAttack;
         myChar.currAttack = darth.baseAttack;
         myChar.attackInc = darth.attackInc;
@@ -116,7 +130,7 @@ $(document).ready(function () {
     });
     $("#leia_1").click(function () {
         myChar.card = $("#leia_2");
-        myChar.name = "leia";
+        myChar.name = "Princess Leia";
         myChar.baseAttack = leia.baseAttack;
         myChar.currAttack = leia.baseAttack;
         myChar.attackInc = leia.attackInc;
@@ -127,7 +141,7 @@ $(document).ready(function () {
     });
     $("#jabba_1").click(function () {
         myChar.card = $("#jabba_2");
-        myChar.name = "jabba";
+        myChar.name = "Jabba The Hut";
         myChar.baseAttack = jabba.baseAttack;
         myChar.currAttack = jabba.baseAttack;
         myChar.attackInc = jabba.attackInc;
@@ -142,22 +156,22 @@ $(document).ready(function () {
     function setMe() {
         if (myChar.card != null) {
             hideSecondRow();
-            if (myChar.name === "luke") {
+            if (myChar.name === "Luke Skywalker") {
                 $("#luke_2").show();
                 $("#darth_3").show();
                 $("#leia_3").show();
                 $("#jabba_3").show();
-            } else if (myChar.name === "darth") {
+            } else if (myChar.name === "Darth Vader") {
                 $("#darth_2").show();
                 $("#luke_3").show();
                 $("#leia_3").show();
                 $("#jabba_3").show();
-            } else if (myChar.name === "leia") {
+            } else if (myChar.name === "Princess Leia") {
                 $("#leia_2").show();
                 $("#luke_3").show();
                 $("#darth_3").show();
                 $("#jabba_3").show();
-            } else if (myChar.name === "jabba") {
+            } else if (myChar.name === "Jabba The Hut") {
                 $("#jabba_2").show();
                 $("#luke_3").show();
                 $("#darth_3").show();
@@ -175,16 +189,16 @@ $(document).ready(function () {
             $("#darth_3").show();
             $("#leia_3").show();
             $("#jabba_3").show();
-            if (myChar.name === "luke") {
+            if (myChar.name === "Luke Skywalker") {
                 $("#luke_3").hide();
             }
-            if (myChar.name === "darth") {
+            if (myChar.name === "Darth Vader") {
                 $("#darth_3").hide();
             }
-            if (myChar.name === "leia") {
+            if (myChar.name === "Princess Leia") {
                 $("#leia_3").hide();
             }
-            if (myChar.name === "jabba") {
+            if (myChar.name === "Jabba The Hut") {
                 $("#jabba_3").hide();
             }
         }
@@ -198,7 +212,7 @@ $(document).ready(function () {
             return;
         }
         defChar.card = $("#luke_3");
-        defChar.name = "luke";
+        defChar.name = "Luke Skywalker";
         defChar.counterAttack = luke.counterAttack;
         defChar.health = luke.health;
         $("#luke_3").hide();
@@ -207,7 +221,7 @@ $(document).ready(function () {
     });
     $("#darth_3").click(function () {
         defChar.card = $("#darth_3");
-        defChar.name = "darth";
+        defChar.name = "Darth Vader";
         defChar.counterAttack = darth.counterAttack;
         defChar.health = darth.health;
         $("#darth_3").hide();
@@ -216,7 +230,7 @@ $(document).ready(function () {
     });
     $("#leia_3").click(function () {
         defChar.card = $("#leia_3");
-        defChar.name = "leia";
+        defChar.name = "Princess Leia";
         defChar.counterAttack = leia.counterAttack;
         defChar.health = leia.health;
         $("#leia_3").hide();
@@ -225,7 +239,7 @@ $(document).ready(function () {
     });
     $("#jabba_3").click(function () {
         defChar.card = $("#jabba_3");
-        defChar.name = "jabba";
+        defChar.name = "Jabba The Hut";
         defChar.counterAttack = jabba.counterAttack;
         defChar.health = jabba.health;
         $("#jabba_3").hide();
@@ -233,27 +247,28 @@ $(document).ready(function () {
         setDef();
     });
 
+    // Setup defender
     function setDef() {
         if (defChar.card != null) {
-            if (defChar.name === "luke") {
+            if (defChar.name === "Luke Skywalker") {
                 $("#luke_4").show();
                 $("#darth_4").hide();
                 $("#leia_4").hide();
                 $("#jabba_4").hide();
             }
-            if (defChar.name === "darth") {
+            if (defChar.name === "Darth Vader") {
                 $("#luke_4").hide();
                 $("#darth_4").show();
                 $("#leia_4").hide();
                 $("#jabba_4").hide();
             }
-            if (defChar.name === "leia") {
+            if (defChar.name === "Princess Leia") {
                 $("#luke_4").hide();
                 $("#darth_4").hide();
                 $("#leia_4").show();
                 $("#jabba_4").hide();
             }
-            if (defChar.name === "jabba") {
+            if (defChar.name === "Jabba The Hut") {
                 $("#luke_4").hide();
                 $("#darth_4").hide();
                 $("#leia_4").hide();
@@ -269,40 +284,59 @@ $(document).ready(function () {
         $("#defAttack").text(defChar.name + " attacked you back for " + defChar.counterAttack + " damage");
 
         myChar.health -= defChar.counterAttack;
-        if (myChar.name === "luke") {
+        if (myChar.name === "Luke Skywalker") {
             $("#luke_2a").text(myChar.health);
         }
-        if (myChar.name === "darth") {
+        if (myChar.name === "Darth Vader") {
             $("#darth_2a").text(myChar.health);
         }
-        if (myChar.name === "leia") {
+        if (myChar.name === "Princess Leia") {
             $("#leia_2a").text(myChar.health);
         }
-        if (myChar.name === "jabba") {
+        if (myChar.name === "Jabba The Hut") {
             $("#jabba_2a").text(myChar.health);
         }
 
         defChar.health -= myChar.currAttack;
-        if (defChar.name === "luke") {
+        if (defChar.name === "Luke Skywalker") {
             $("#luke_4a").text(defChar.health);
         }
-        if (defChar.name === "darth") {
+        if (defChar.name === "Darth Vader") {
             $("#darth_4a").text(defChar.health);
         }
-        if (defChar.name === "leia") {
+        if (defChar.name === "Princess Leia") {
             $("#leia_4a").text(defChar.health);
         }
-        if (defChar.name === "jabba") {
+        if (defChar.name === "Jabba The Hut") {
             $("#jabba_4a").text(defChar.health);
         }
 
         if (myChar.health <= 0) {
-            $("#yourAttack").text("You have been defeated - Game Ober!");
-            $("#defAttack").html("<button>Restart</button>");
+            $("#yourAttack").text("You have been defeated - Game Over!");
+            $("#defAttack").text("");
+            $("#restart").show();
         }
         if (defChar.health <= 0) {
-            $("#yourAttack").text("You have defeated " + defChar.name + " , you can choose to fight another enemy.");
-            $("#defAttack").text("");
+            $("#yourAttack").text("You have defeated " + defChar.name);
+            deadDef++;
+            if (deadDef == 3) {
+                $("#defAttack").text("You've beaten them all!!!");
+                $("#restart").show();
+            } else {
+                $("#defAttack").text("You must choose to fight another enemy.");
+            }
+            if (defChar.name === "Luke Skywalker") {
+                $("#luke_4").hide();
+            }
+            if (defChar.name === "Darth Vader") {
+                $("#darth_4").hide();
+            }
+            if (defChar.name === "Princess Leia") {
+                $("#leia_4").hide();
+            }
+            if (defChar.name === "Jabba The Hut") {
+                $("#jabba_4").hide();
+            }
         }
         myChar.currAttack += myChar.attackInc;
 
