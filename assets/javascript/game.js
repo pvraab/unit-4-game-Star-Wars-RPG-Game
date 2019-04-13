@@ -1,3 +1,10 @@
+// JavaScript for Bootcamp Homework #4
+// Paul Raab
+// Raab Enterprises LLC
+// 4/12/2019
+// ## Harder Assignment - Building a Star Wars RPG game
+// ToDo - Refactor to remove all the duplicate code - I think we can do this better
+// Also look at using dynamic positioning instead of hide/show.
 $(document).ready(function () {
     console.log("Start");
 
@@ -7,6 +14,7 @@ $(document).ready(function () {
     var canAttack = false;
     var deadDef = 0;
 
+    // Initialize attacker/defender objects
     var myChar = {
         name: "",
         card: null,
@@ -25,6 +33,8 @@ $(document).ready(function () {
         currAttack: 0,
         counterAttack: 0
     }
+
+        // Initialize character objects
     var luke = {
         name: "Luke Skywalker",
         health: 120,
@@ -195,6 +205,7 @@ $(document).ready(function () {
         }
     }
 
+    // Remove you from possible defenders
     function removeMeFromThird() {
         if (myChar.card != null) {
 
